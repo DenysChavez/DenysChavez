@@ -1,43 +1,56 @@
-# Hi there 👋
+# Hi, I'm Denys 👋
 
-I'm Denys — a Cloud Computing student who likes understanding how a business actually runs, then building the systems that support it.
+Cloud Computing student building a career in **cloud engineering**, focused on AWS and SAP BTP. My goal: start as a **Junior SAP BTP Administrator / Junior SAP Cloud Engineer** and grow into an **SAP Cloud Solutions Architect**.
 
-- 🔭 **Currently working on** a private, production-style AWS environment built entirely with modular Terraform — zero-SSH access via Systems Manager, least-privilege IAM, encryption at rest, automated backups with tested restores, and CloudWatch billing alarms.
-- 🌱 **Currently learning** SAP BTP beyond the fundamentals (Cockpit, subaccounts, IAS/IPS identity, Cloud Foundry), plus Python and Azure through my A.S. coursework.
-- 👯 **Looking to collaborate on** infrastructure-as-code projects, small-business web builds, and anything that replaces a manual process with a documented, repeatable one.
-- 🤔 **Looking for help with** going deeper on enterprise SAP workflows and on data/reporting tooling — if you work in that space, I'd love to hear how you got started.
-- 💬 **Ask me about** Terraform module design, locking down an AWS account without SSH, debugging a server you can't shell into, or scoping a real client project before writing any code.
-- 📫 **How to reach me:** [LinkedIn](https://linkedin.com/in/denyschavez-fuentes) 
-- ⚡ **Fun fact:** I once spent a day debugging a server I had no shell access to. The fix was one line — a Terraform AMI filter was quietly matching the "minimal" image variant, which ships without the SSM agent. I found it by injecting a diagnostic script through EC2 user_data.
+I learn in public. Every lab ends up in a repo with evidence, redacted screenshots, and a cleanup checklist, so you can see what I've actually built.
 
----
-
-### 🛠️ What I work with
-
-**Cloud & Infrastructure** — AWS (EC2, VPC, IAM, S3, Systems Manager, AWS Backup, CloudWatch, SNS) · Terraform
-
-**Security** — Least-privilege IAM, IMDSv2, encryption at rest, HTTPS-only bucket policies, zero-inbound-port networks
-
-**Enterprise Platforms** — SAP BTP (Cockpit, account/subaccount structure, IAS/IPS, Cloud Foundry)
-
-**Web** — Next.js · React · Payload CMS · Postgres (Neon) · Vercel · HTML/CSS/JS
-
-**Other** — Git/GitHub · Linux CLI · Python
+- 🔭 **Working on:** [AWS + SAP Cloud Engineering Portfolio](https://github.com/DenysChavez/aws-sap-cloud-engineering-portfolio), a 13-week plan rebuilding my AWS labs with evidence, then moving to hands-on SAP BTP
+- 🌱 **Learning now:** IAM policies, roles and permissions boundaries (Week 2). Next: VPC networking, then my first SAP BTP trial account
+- 🤝 **Open to:** internships and entry-level roles, available now. Remote, or hybrid in the Philadelphia / Malvern, PA area
+- 🌎 **Languages:** English and Spanish (native)
+- 📫 **Reach me:** [LinkedIn](https://www.linkedin.com/in/denyschavez-fuentes/)
 
 ---
 
-### 📌 Projects
+###  Projects
 
-**Secure AWS Environment with Automated Controls** — Terraform, AWS
-Private VPC with public/private subnets, all admin access through Session Manager instead of SSH, a least-privilege IAM policy validated over four rounds of live testing, and automated daily backups with restore tests.
+**[AWS + SAP Cloud Engineering Portfolio](https://github.com/DenysChavez/aws-sap-cloud-engineering-portfolio)** · AWS · SAP BTP · *in progress*
+Five planned projects, from AWS infrastructure and SAP BTP administration to Integration Suite and Terraform. Each one is marked verified only once the evidence is in the repo.
+- ✅ **Week 1: [Securing a new AWS account](https://github.com/DenysChavez/aws-sap-cloud-engineering-portfolio/blob/main/technical-notes/securing-a-new-aws-account.md).** Root MFA, budgets, an MFA-protected admin user, short-term CLI credentials, and an audit of leftover resources. The audit found a privilege-escalation path in an old IAM policy, which I removed.
+- 🟨 **Week 2: least-privilege IAM.** A bucket-scoped read-only policy tested in the Policy Simulator and with real calls, roles, and permissions boundaries.
 
-**Custom-Furniture Business Site** — Next.js 16, Payload CMS 3, Postgres, Vercel
-Ran end-to-end discovery for a real client and wrote a 20-section spec before building. Designed an inventory model covering three product types and consolidated four separate inquiry flows into one lead pipeline.
+**[AI Agent Sandbox on AWS](https://github.com/DenysChavez/ai-agent-sandbox)** · Terraform · AWS · *completed and torn down*
+A self-hosted sandbox built with modular Terraform: a private VPC, admin access only through Systems Manager (no SSH), encryption at rest, daily AWS Backup with restore tests, and CloudWatch billing alarms.
+Lesson learned: when I later reviewed the operator IAM policy, I found it allowed `CreateRole` + `AttachRolePolicy` + `PassRole` with no conditions, which is a path to admin. I now test policies for escalation, not just for whether they work.
 
 ---
 
-### 🎓 Education & Certifications
+###  Skills
 
-- **A.S., Cloud Computing** — Delaware County Community College *(expected 2027)*
-- **SAP BTP Fundamentals — Level 1: Foundations** *(SAP Learning, 2026)*
-- **SAP BTP Fundamentals — Level 2: Administration, Security, Extensibility & Data-to-Value** *(SAP Learning, 2026)*
+| Area | Hands-on (with evidence) | Learning now |
+|---|---|---|
+| **Cloud platforms** | AWS: IAM, EC2, VPC, S3, Systems Manager, AWS Backup, CloudWatch, SNS, CloudTrail, Budgets | SAP BTP: account model, entitlements, role collections, Cloud Foundry |
+| **Security** | Root/MFA hardening, least-privilege IAM, IMDSv2, encryption at rest, no-SSH access | Permissions boundaries, IAM Access Analyzer |
+| **IaC & tools** | Terraform, AWS CLI, Git/GitHub | Python and Linux (beginner) |
+
+---
+
+###  Roadmap
+
+| Phase | Focus | Status |
+|---|---|---|
+| Weeks 1–5 | AWS foundations: account security, IAM, VPC, EC2, S3/KMS → **Project 01** | 🟨 In progress |
+| Weeks 6–8 | SAP BTP administration: account model, entitlements, role collections, Cloud Foundry → **Project 02** | ⬜ |
+| Weeks 9–11 | Integration: Lambda + APIs, SAP Integration Suite, API Management → **Project 03** | ⬜ |
+| Weeks 12–13 | Terraform rebuild (**Project 05**) and AWS + SAP hybrid design (**Project 04**) | ⬜ |
+
+---
+
+### 🎓 Education & badges
+
+- **AAS, Cloud Computing**, Delaware County Community College *(expected May 2027)*
+- **SAP BTP Fundamentals, Level 1** and **Level 2**: SAP Learning course-completion badges *(June 2026)*
+
+---
+
+<sub>⚡ Favorite debugging story: I spent a day on a server I couldn't shell into. The fix was one line. A Terraform AMI filter was matching the "minimal" image, which ships without the SSM agent. I found it by injecting a diagnostic script through EC2 user data.</sub>
